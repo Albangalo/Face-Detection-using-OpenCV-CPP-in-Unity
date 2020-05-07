@@ -1,10 +1,6 @@
-# Face Detection using OpenCV(C++) in Unity
+# Exercises in indoor localisation and projection with Unity
 
-Face Detection implemented in OpenCV in CPP by creating a plugin (.dll) and exporting it into Unity. The unity project allows you to control a cube in 3D space using your face.
-
-This repository consists of both the Unity Project as well as the OpenCV Visual Studio Project.
-
-I referred to the links mentioned below to create this.
+This project aims to explore ways to create holographic projection on displays to mimic a mixed reality effect without head-wear.
 
 # Reference Links
 
@@ -12,7 +8,8 @@ I referred to the links mentioned below to create this.
 2. http://thomasmountainborn.com/2017/03/05/unity-and-opencv-part-three-passing-detection-data-to-unity/
 3. https://forum.unity.com/threads/opencvsharp-for-unity.278033/
 4. https://www.opencv-srf.com/p/introduction.html
+5. https://forum.unity.com/threads/kinect-v2-with-ms-sdk.260106/page-5#post-2516749
 
-# Video Demo
-
-https://youtu.be/KXSMA_VfnXg
+# Thanks to
+ - rajandeepsingh13 for creating a starter Unity project with face detection from which this is forked
+ - daloots for writing a Unity script for location-based camera transformation

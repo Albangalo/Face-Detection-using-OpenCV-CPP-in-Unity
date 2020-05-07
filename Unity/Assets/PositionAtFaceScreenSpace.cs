@@ -11,10 +11,16 @@ public class PositionAtFaceScreenSpace : MonoBehaviour
     public float X_SCALE = 5f;
     public float Y_SCALE = 5f;
     public float Z_SCALE = 0.5f;
+    public float X_OFFSET = -0.42f;
+    public float Y_OFFSET = -0.65f;
+    public float Z_OFFSET = 0f;
+    private Vector3 HeadPos;
+    private Assets.HolographicDisplay.SimpleHolographicCamera HoloCamScript;
 
     void Start()
     {
         _camDistance = Vector3.Distance(Camera.main.transform.position, transform.position);
+        HeadPos = Vector3.zero;
         windowX = new float[WINDOW_SIZE];
         windowY = new float[WINDOW_SIZE];
         windowZ = new float[WINDOW_SIZE];
@@ -43,8 +49,13 @@ public class PositionAtFaceScreenSpace : MonoBehaviour
         var smoothY = Median(windowY);
         var smoothZ = Median(windowZ);
 
-        print("currX:"+ currX+ ", currY:" + currY + ", currZ:" + currZ + ", smoothX: "+ smoothX + ", smoothY: " + smoothY + ", smoothZ: " + smoothZ);
-        transform.position = new Vector3(smoothX*X_SCALE, smoothY*Y_SCALE, smoothZ*Z_SCALE);
+        //print("currX:"+ currX+ ", currY:" + currY + ", currZ:" + currZ + ", smoothX: "+ smoothX + ", smoothY: " + smoothY + ", smoothZ: " + smoothZ);
+        HeadPos = new Vector3((smoothX+X_OFFSET)*-X_SCALE, (smoothY+Y_OFFSET)*Y_SCALE, (smoothZ+Z_OFFSET)*Z_SCALE);
+    }
+
+    public Vector3 GetHeadPos()
+    {
+        return HeadPos;
     }
 
     private float Median(float[] vals)
